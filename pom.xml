@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- This module was also published with a richer model, Gradle metadata,  -->
   <!-- which should be used instead. Do not delete the following line which  -->
   <!-- is to indicate to Gradle or any Gradle module metadata file consumer  -->
@@ -6,10 +8,10 @@
   <!-- do_not_remove: published-with-gradle-metadata -->
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-tomcat</artifactId>
+  <artifactId>spring-boot-starter-security</artifactId>
   <version>2.7.18-lineaje-01</version>
-  <name>spring-boot-starter-tomcat</name>
-  <description>Starter for using Tomcat as the embedded servlet container. Default servlet container starter used by spring-boot-starter-web</description>
+  <name>spring-boot-starter-security</name>
+  <description>Starter for using Spring Security</description>
   <url>https://spring.io/projects/spring-boot</url>
   <organization>
     <name>VMware, Inc.</name>
@@ -30,10 +32,9 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:spring-projects-spring-boot</connection>
-    <developerConnection>scm:git:spring-projects-spring-boot</developerConnection>
-    <url>spring-projects-spring-boot</url>
-    <tag>2.7.18-lineaje-01</tag>
+    <connection>scm:git:git://github.com/spring-projects/spring-boot.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/spring-projects/spring-boot.git</developerConnection>
+    <url>https://github.com/spring-projects/spring-boot</url>
   </scm>
   <issueManagement>
     <system>GitHub</system>
@@ -41,70 +42,37 @@
   </issueManagement>
   <dependencies>
     <dependency>
-      <groupId>jakarta.annotation</groupId>
-      <artifactId>jakarta.annotation-api</artifactId>
-      <version>1.3.5</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+      <version>2.7.18</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>org.apache.tomcat.embed</groupId>
-      <artifactId>tomcat-embed-core</artifactId>
-      <version>9.0.119</version>
-      <scope>compile</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>tomcat-annotations-api</artifactId>
-          <groupId>org.apache.tomcat</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.tomcat.embed</groupId>
-      <artifactId>tomcat-embed-el</artifactId>
-      <version>9.0.119</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>5.3.31</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>org.apache.tomcat.embed</groupId>
-      <artifactId>tomcat-embed-websocket</artifactId>
-      <version>9.0.119</version>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>5.8.16</version>
       <scope>compile</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>tomcat-annotations-api</artifactId>
-          <groupId>org.apache.tomcat</groupId>
-        </exclusion>
-      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>5.8.16</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
-  <contributors>
-    <contributor>
-      <name>Lineaje DepFixer</name>
-      <email>221268890+Lineaje-DepFixer@users.noreply.github.com</email>
-    </contributor>
-  </contributors>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>3.2.4</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <gpgArguments>
-            <arg>--pinentry-mode</arg>
-            <arg>loopback</arg>
-          </gpgArguments>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-crypto</artifactId>
+        <version>5.8.16</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>
