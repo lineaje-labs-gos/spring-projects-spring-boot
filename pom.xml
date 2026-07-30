@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <!-- This module was also published with a richer model, Gradle metadata,  -->
   <!-- which should be used instead. Do not delete the following line which  -->
   <!-- is to indicate to Gradle or any Gradle module metadata file consumer  -->
@@ -9,7 +7,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.springframework.boot</groupId>
   <artifactId>spring-boot-starter-web</artifactId>
-  <version>4.0.6-lineaje-01</version>
+  <version>4.0.6-lineaje-02</version>
   <name>spring-boot-starter-web</name>
   <description>Starter for building web, including RESTful, applications using Spring MVC. Uses Tomcat as the default embedded container (deprecated in favor of spring-boot-starter-webmvc)</description>
   <url>https://spring.io/projects/spring-boot</url>
@@ -32,9 +30,10 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git://github.com/spring-projects/spring-boot.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/spring-projects/spring-boot.git</developerConnection>
-    <url>https://github.com/spring-projects/spring-boot</url>
+    <connection>scm:git:spring-projects-spring-boot</connection>
+    <developerConnection>scm:git:spring-projects-spring-boot</developerConnection>
+    <url>spring-projects-spring-boot</url>
+    <tag>4.0.6-lineaje-02</tag>
   </scm>
   <issueManagement>
     <system>GitHub</system>
@@ -80,4 +79,34 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+  <contributors>
+    <contributor>
+      <name>Lineaje DepFixer</name>
+      <email>221268890+Lineaje-DepFixer@users.noreply.github.com</email>
+    </contributor>
+  </contributors>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>3.2.4</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <gpgArguments>
+            <arg>--pinentry-mode</arg>
+            <arg>loopback</arg>
+          </gpgArguments>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
